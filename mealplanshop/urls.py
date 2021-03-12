@@ -16,10 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
+    path('calendar/', views.calendar, name='calendar'),
+    path('recipes/', views.recipes, name='recipes'),
+    path('shoppinglists/', views.shoppinglists, name='shoppinglists'),
+    path('nutrition/', views.nutrition, name='nutrition'),
     path('', views.index, name='index'),
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-]
+    path('accounts/profile/', views.profile, name='profile'),
+    
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
+

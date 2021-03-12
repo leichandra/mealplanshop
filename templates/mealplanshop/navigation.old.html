@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>Meal Plan Shop</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <h1>Navigation</h1>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-3">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'calendar' %}">Calendar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'recipes' %}">Recipes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'shoppinglists' %}">Shopping Lists</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'nutrition' %}">Nutrition</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col bg-light">
+          <h1>Content</h1>
+          <div id="content" name="content">
+            {% block content%}
+            {% endblock%}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h1>Footer</h1>
+    <div id="footer" name="footer">
+      {% block footer %}
+          {% include "mealplanshop/footer.html" %}
+      {% endblock %}
+    </div>
+  </body>
+</html>
