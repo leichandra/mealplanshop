@@ -1,4 +1,134 @@
 {% extends 'mealplanshop/navigation.html' %}
 {% block content %}
-<h2>Calendar</h2>
+<h2>Calendar - Week View</h2>
+
+<div class="container calendar-container">
+    <div class="row calendar-row">
+        <div class="col-sm calendar-cell">
+        </div>
+        <div class="col-sm calendar-cell">Sunday</div>
+        <div class="col-sm calendar-cell">Monday</div>
+        <div class="col-sm calendar-cell">Tuesday</div>
+        <div class="col-sm calendar-cell">Wednesday</div>
+        <div class="col-sm calendar-cell">Thursday</div>
+        <div class="col-sm calendar-cell">Friday</div>
+        <div class="col-sm calendar-cell">Saturday</div>
+    </div>
+    <div class="row calendar-row">
+        <div class="col-sm calendar-cell">Breakfast</div>
+        <div class="col-sm calendar-cell">Meal: <input type="text"></input><br>Recipe: <input type="text"></input><br>Ingredients: <input type="text"></input></div>
+        <div class="col-sm calendar-cell"></div>
+        <div class="col-sm calendar-cell"></div>
+        <div class="col-sm calendar-cell"></div>
+        <div class="col-sm calendar-cell"></div>
+        <div class="col-sm calendar-cell"></div>
+        <div class="col-sm calendar-cell"></div>
+    </div>
+    <div class="row calendar-row">
+        <div class="col-sm calendar-cell">Lunch</div>
+        <div class="col-sm calendar-cell"></div>
+        <div class="col-sm calendar-cell"></div>
+        <div class="col-sm calendar-cell"></div>
+        <div class="col-sm calendar-cell"></div>
+        <div class="col-sm calendar-cell"></div>
+        <div class="col-sm calendar-cell"></div>
+        <div class="col-sm calendar-cell"></div>
+    </div>
+    <div class="row calendar-row">
+        <div class="col-sm calendar-cell">Dinner</div>
+        <div class="col-sm calendar-cell"></div>
+        <div class="col-sm calendar-cell"></div>
+        <div class="col-sm calendar-cell"></div>
+        <div class="col-sm calendar-cell"></div>
+        <div class="col-sm calendar-cell"></div>
+        <div class="col-sm calendar-cell"></div>
+        <div class="col-sm calendar-cell"></div>
+    </div>
+    <div class="row calendar-row">
+        <div class="col-sm calendar-cell">Snacks</div>
+        <div class="col-sm calendar-cell"></div>
+        <div class="col-sm calendar-cell"></div>
+        <div class="col-sm calendar-cell"></div>
+        <div class="col-sm calendar-cell"></div>
+        <div class="col-sm calendar-cell"></div>
+        <div class="col-sm calendar-cell"></div>
+        <div class="col-sm calendar-cell"></div>
+    </div>
+</div>
+
+<h2>Calendar - Day View</h2>
+
+<div class="container calendar-container">
+    <div class="row calendar-row">
+        <div class="col-2 calendar-cell"></div>
+        <div class="col-10 calendar-cell">Sunday</div>
+    </div>
+    <div class="row calendar-row">
+        <div class="col-2 calendar-cell">Breakfast</div>
+        <div class="col-10 calendar-cell">
+            <b>Meal Name:</b>
+            <input type="text" placeholder="Put meal plan name here"/>
+            <br/>
+            <br/>
+            <b>Recipe:</b>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">1.</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Add new step or link" value="Wash fresh fruits"/>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">2.</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Add new step or link" value="Mix 1 part water with 3 parts flour"/>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">3.</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Add new step or link"/>
+            </div>
+            <br/>
+            <b>Ingredients:</b>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Add ingredient" value="Grapes"/>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">+ Shopping List</button>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Add ingredient" value="Flour"/>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">+ Shopping List</button>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Add ingredient">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">+ Shopping List</button>
+                </div>
+            </div>
+            <input type="submit" value="Save" />
+        </div>
+    </div>
+    <div class="row calendar-row">
+        <div class="col-2 calendar-cell">Lunch</div>
+        <div class="col-10 calendar-cell"></div>
+    </div>
+    <div class="row calendar-row">
+        <div class="col-2 calendar-cell">Dinner</div>
+        <div class="col-10 calendar-cell"></div>
+    </div>
+    <div class="row calendar-row">
+        <div class="col-2 calendar-cell">Snacks</div>
+        <div class="col-10 calendar-cell"></div>
+    </div>
+</div>
+
+
+
+
 {% endblock %}
+
+
