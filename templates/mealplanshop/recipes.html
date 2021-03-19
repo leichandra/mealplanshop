@@ -1,4 +1,102 @@
 {% extends 'mealplanshop/navigation.html' %}
 {% block content %}
+<div class="input-group">
+    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+      aria-describedby="search-addon" />
+    <button type="button" class="btn btn-outline-primary">search</button>
+  </div>
 <h2>Recipes</h2>
+<div class="container calendar-container">
+    <div class="row calendar-row">
+        <div class="col-sm calendar-cell"><b>Recipe</b></div>
+        <div class="col-sm calendar-cell"><b>Date Created</b></div>
+        <div class="col-sm calendar-cell"><b>Last Modified</b></div>
+        <div class="col-sm calendar-cell"><b>Checkboxes</b></div>
+        
+    </div>
+    <div class="row calendar-row">
+        <div class="col-sm calendar-cell">o</div>
+        <div class="col-sm calendar-cell">p</div>
+        <div class="col-sm calendar-cell">k</div>
+        <div class="col-sm calendar-cell">k</div>
+       
+    </div>
+    <div class="row calendar-row">
+        <div class="col-sm calendar-cell">o</div>
+        <div class="col-sm calendar-cell">p</div>
+        <div class="col-sm calendar-cell">p</div>
+        <div class="col-sm calendar-cell">p</div>
+     
+    </div>
+    <div class="row calendar-row">
+        <div class="col-sm calendar-cell">pp</div>
+        <div class="col-sm calendar-cell">e</div>
+        <div class="col-sm calendar-cell">e</div>
+        <div class="col-sm calendar-cell">e</div>
+   
+    </div>
+    <div class="row calendar-row">
+        <div class="col-sm calendar-cell">e</div>
+        <div class="col-sm calendar-cell">e</div>
+        <div class="col-sm calendar-cell">U</div>
+        <div class="col-sm calendar-cell">e</div>
+        
+    </div>
+</div>
+<br/>
+<h2>Add a Recipe</h2>
+
+<span class="badge bg-primary">Snack</span>
+<span class="badge bg-primary">Keto</span>
+<span class="badge bg-primary">Vegetarian</span>
+<span class="badge bg-primary">Vegan</span>
+<span class="badge bg-primary">Gluten-free</span>
+<span class="badge bg-primary">Low-cal</span>
+<br/>
+            <b>Meal Name:</b>
+            <input type="text" placeholder="Put meal plan name here"/>
+            <br/>
+            <br/>
+            <b>Recipe:</b>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">1.</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Add new step or link" value="Wash fresh fruits"/>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">2.</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Add new step or link" value="Mix 1 part water with 3 parts flour"/>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">3.</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Add new step or link"/>
+            </div>
+            <br/>
+            <b>Ingredients:</b>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Add ingredient" value="Grapes"/>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">+ Shopping List</button>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Add ingredient" value="Flour"/>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">+ Shopping List</button>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Add ingredient">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">+ Shopping List</button>
+                </div>
+            </div>
+            <input type="submit" value="Save" />
+        
+
 {% endblock %}
