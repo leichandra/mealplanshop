@@ -85,7 +85,15 @@ body {
     min-width: 900px;
 }
 
+.dropdown-container-cell {
+    overflow: visible;
+}
+
 table.month  {
     width: 100%;
     height: 400px; 
+}
+
+.margin-bottom   {
+    height: 100px;
 }
