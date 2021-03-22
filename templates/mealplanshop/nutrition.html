@@ -1,4 +1,56 @@
 {% extends 'mealplanshop/navigation.html' %}
 {% block content %}
+{% load static %}
 <h2>Nutrition</h2>
+
+<p>Are you getting enough nutrients and vitamins?</p>
+
+<ul>
+    <li>How are your sleep habbits?</li>
+    <li>How is your memory?</li>
+    <li>How is your energy level?</li>
+    <li>How is your mood on a daily basis?</li>
+    <li>How is your ________?</li>
+    <li>How is your ________?</li>
+</ul>
+<br/>
+<h4>Sleep Supplements</h4>
+<div class="container nutrition-container">
+    <div class="row nutrition-row">
+        <div class="col nutrition-cell"><b>Vitamin</b></div>
+        <div class="col nutrition-cell"><b>Buy</b></div>
+    </div>
+    <div class="row nutrition-row">
+        <div class="col nutrition-cell">Melatonin</div>
+        <div class="col nutrition-cell">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2">+ Shopping List</button>
+            <a href="false" target="_blank" rel="noopener noreferrer" style="border:none;text-decoration:none"><img src="{% static '/mealplanshop/images/amazon-button3.png' %}"></a>
+        </div>
+    </div>
+    <div class="row nutrition-row">
+        <div class="col nutrition-cell">Magnesium</div>
+        <div class="col nutrition-cell">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2">+ Shopping List</button>
+            <a href="false" target="_blank" rel="noopener noreferrer" style="border:none;text-decoration:none"><img src="{% static '/mealplanshop/images/amazon-button3.png' %}"></a>
+        </div>
+    </div>
+    <div class="row nutrition-row">
+        <div class="col nutrition-cell">Chamomile Tea</div>
+        <div class="col nutrition-cell">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2">+ Shopping List</button>
+            <a href="false" target="_blank" rel="noopener noreferrer" style="border:none;text-decoration:none"><img src="{% static '/mealplanshop/images/amazon-button3.png' %}"></a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 {% endblock %}

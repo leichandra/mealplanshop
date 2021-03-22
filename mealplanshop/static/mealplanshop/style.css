@@ -77,11 +77,14 @@ body {
 
 
 .calendar-cell  {
-    border: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
     overflow-x: hidden;
 }
 
 .calendar-container   {
+    border-left: 1px solid black;
+    border-top: 1px solid black;
     min-width: 900px;
 }
 
@@ -96,4 +99,40 @@ table.month  {
 
 .margin-bottom   {
     height: 100px;
+}
+
+.shoplist-cell  {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    overflow-x: hidden;
+}
+
+.shoplist-container   {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    min-width: 900px;
+}
+
+.recipe-cell  {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    overflow-x: hidden;
+}
+
+.recipe-container   {
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    min-width: 900px;
+}
+
+.nutrition-cell  {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    overflow-x: hidden;
+}
+
+.nutrition-container   {
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    min-width: 900px;
 }
