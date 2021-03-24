@@ -11,6 +11,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 import datetime
 import calendar as calendar2
+import urllib.parse
 
 def index(request):
   # now = datetime.datetime.now()
@@ -33,4 +34,12 @@ def shoppinglists(request):
   return render(request, 'mealplanshop/shoppinglists.html')
 
 def nutrition(request):
-  return render(request, 'mealplanshop/nutrition.html')
+  melatoninLink = 'https://www.amazon.com/s?k={}'.format('melatonin')
+  magnesiumLink = 'https://www.amazon.com/s?k={}'.format('magnesium')
+  chamomileTeaUrlSafe = urllib.parse.quote('chamomile tea')
+  chamomileTeaLink = 'https://www.amazon.com/s?k={}'.format(chamomileTeaUrlSafe)
+  return render(request, 'mealplanshop/nutrition.html', {"melatonin": melatoninLink, "magnesium": magnesiumLink, "chamomileTeaLink": chamomileTeaLink})
+  
+  
+  
+
