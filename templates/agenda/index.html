@@ -1,0 +1,33 @@
+{% extends 'mealplanshop/navigation.html' %}
+{% block content %} 
+
+<table class="table table-striped table-bordered table-sm">  
+    <thead class="thead-dark">  
+    <tr>  
+        <th>Date</th>  
+        <th>Breakfast</th>  
+        <th>Lunch</th>  
+        <th>Dinner</th>  
+        <th>Actions</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for agenda in agendas %}  
+    <tr>  
+        <td>{{ agenda.date }}</td>  
+        <td>{{ agenda.breakfast_recipe.name }}</td>  
+        <td>{{ agenda.lunch_recipe.name }}</td>  
+        <td>{{ agenda.dinner_recipe.name }}</td>  
+        <td>  
+            <a href="/agenda/edit/{{ agenda.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="/agenda/delete/{{ agenda.id }}">Delete</a>  
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+<center><a href="/agenda/create" class="btn btn-primary">Add New Agenda</a></center>  
+
+{% endblock %}

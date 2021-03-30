@@ -1,0 +1,42 @@
+{% extends 'mealplanshop/navigation.html' %}
+{% block content %}
+
+<form method="POST" class="post-form" action="/agenda/create">  
+    {% csrf_token %}  
+    <div class="container">  
+        <br>  
+        <div class="form-group row">  
+            <label class="col-sm-1 col-form-label"></label>  
+            <div class="col-sm-4">  
+                <h3>Enter Date</h3>  
+            </div>  
+        </div>  
+        <div class="form-group row">  
+            <label class="col-sm-2 col-form-label">Breakfast Recipe:</label>  
+            <div class="col-sm-4">  
+                {{ form.breakfast_recipe }}  
+            </div>  
+        </div>
+        <div>
+            <label class="col-sm-2 col-form-label">Lunch Recipe:</label>  
+            <div class="col-sm-4">  
+                {{ form.lunch_recipe }}  
+            </div>  
+        </div>  
+        <div>
+          <label class="col-sm-2 col-form-label">Dinner Recipe:</label>  
+          <div class="col-sm-4">  
+              {{ form.dinner_recipe }}  
+          </div>  
+        </div>  
+        <br/>
+        <div class="form-group row">  
+            <label class="col-sm-1 col-form-label"></label>  
+            <div class="col-sm-4">  
+                <button type="submit" class="btn btn-primary">Submit</button>  
+            </div>  
+        </div>  
+    </div>  
+</form>  
+
+{% endblock %}

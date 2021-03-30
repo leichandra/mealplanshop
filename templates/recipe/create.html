@@ -1,0 +1,42 @@
+{% extends 'mealplanshop/navigation.html' %}
+{% block content %}
+
+<form method="POST" class="post-form" action="/recipes/create">  
+    {% csrf_token %}  
+    <div class="container">  
+        <br>  
+        <div class="form-group row">  
+            <label class="col-sm-1 col-form-label"></label>  
+            <div class="col-sm-4">  
+                <h3>Enter Details</h3>  
+            </div>  
+        </div>  
+        <div class="form-group row">  
+            <label class="col-sm-2 col-form-label">Recipe Name:</label>  
+            <div class="col-sm-4">  
+                {{ form.name }}  
+            </div>  
+        </div>
+        <div>
+            <label class="col-sm-2 col-form-label">Ingredients:</label>  
+            <div class="col-sm-4">  
+                {{ form.ingredients }}  
+            </div>  
+        </div>  
+        <div>
+          <label class="col-sm-2 col-form-label">Instructions:</label>  
+          <div class="col-sm-4">  
+              {{ form.instructions }}  
+          </div>  
+        </div>  
+        <br/>
+        <div class="form-group row">  
+            <label class="col-sm-1 col-form-label"></label>  
+            <div class="col-sm-4">  
+                <button type="submit" class="btn btn-primary">Submit</button>  
+            </div>  
+        </div>  
+    </div>  
+</form>  
+
+{% endblock %}

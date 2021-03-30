@@ -1,0 +1,33 @@
+{% extends 'mealplanshop/navigation.html' %}
+{% block content %} 
+
+<table class="table table-striped table-bordered table-sm">  
+    <thead class="thead-dark">  
+    <tr>  
+        <th>Recipe ID</th>  
+        <th>Recipe Name</th>  
+        <th>Date Created</th>  
+        <th>Last Modifed</th>  
+        <th>Actions</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for recipe in recipes %}  
+    <tr>  
+        <td>{{ recipe.id }}</td>  
+        <td>{{ recipe.name }}</td>  
+        <td>{{ recipe.created_at }}</td>  
+        <td>{{ recipe.updated_at }}</td>  
+        <td>  
+            <a href="/recipes/edit/{{ recipe.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="/recipes/delete/{{ recipe.id }}">Delete</a>  
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+<center><a href="/recipes/create" class="btn btn-primary">Add New Record</a></center>  
+
+{% endblock %}

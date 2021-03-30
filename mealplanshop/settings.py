@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.staticfiles',
     'mealplanshop',
+    'recipe',
+    'agenda',
 
     'allauth',
     'allauth.account',
