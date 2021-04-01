@@ -18,10 +18,12 @@ from django.urls import include, path
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
-from recipe import views as recipeViews
+from recipe import views as recipeViews        
+from agenda import views as agendaViews
 
 urlpatterns = [
-    path('calendar/', views.calendar, name='calendar'),
+    path('calendar/', agendaViews.index, name='calendar'),
+    path('calendar/create', agendaViews.create, name='createcalendar'),
     path('shoppinglists/', views.shoppinglists, name='shoppinglists'),
     path('nutrition/', views.nutrition, name='nutrition'),
     path('', views.index, name='index'),

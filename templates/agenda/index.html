@@ -19,8 +19,8 @@
         <td>{{ agenda.lunch_recipe.name }}</td>  
         <td>{{ agenda.dinner_recipe.name }}</td>  
         <td>  
-            <a href="/agenda/edit/{{ agenda.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
-            <a href="/agenda/delete/{{ agenda.id }}">Delete</a>  
+            <a href="/calendar/edit/{{ agenda.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="/calendar/delete/{{ agenda.id }}">Delete</a>  
         </td>  
     </tr>  
 {% endfor %}  
@@ -28,6 +28,6 @@
 </table>  
 <br>  
 <br>  
-<center><a href="/agenda/create" class="btn btn-primary">Add New Agenda</a></center>  
+<center><a href="/calendar/create" class="btn btn-primary">Add New Agenda</a></center>  
 
 {% endblock %}
