@@ -24,6 +24,9 @@ from agenda import views as agendaViews
 urlpatterns = [
     path('calendar/', agendaViews.index, name='calendar'),
     path('calendar/create', agendaViews.create, name='createcalendar'),
+    path('calendar/edit/<int:id>', agendaViews.edit),  
+    path('calendar/update/<int:id>', agendaViews.update), 
+    path('calendar/delete/<int:id>', agendaViews.destroy),
     path('shoppinglists/', views.shoppinglists, name='shoppinglists'),
     path('nutrition/', views.nutrition, name='nutrition'),
     path('', views.index, name='index'),

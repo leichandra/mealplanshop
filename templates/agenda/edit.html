@@ -1,7 +1,8 @@
 {% extends 'mealplanshop/navigation.html' %}
 {% block content %}
-
-<form method="POST" class="post-form" action="/recipes/update/{{recipe.id}}">  
+{{ form.non_field_errors }}
+{{ form }}
+<form method="POST" class="post-form" action="/calendar/update/{{agenda.id}}">  
     {% csrf_token %}  
     <div class="container">  
         <br>  
@@ -11,24 +12,74 @@
                 <h3>Update Agenda</h3>  
             </div>  
         </div>  
-   
+        <div class="form-group row">  
+            <label class="col-sm-2 col-form-label">Date:</label>  
+            <div class="col-sm-4">  
+                <input type="text" name="date" required="" id="id_date" value="{{ agenda.date }}">
+            </div>  
+        </div>  
+       
+        <div class="form-group row"> 
+            <div class="col">
+            
+            </div>
+        </div>   
         <div class="form-group row">  
             <label class="col-sm-2 col-form-label">Breakfast Recipe:</label>  
             <div class="col-sm-4">  
-                <input type="text" name="name" id="id_name" required maxlength="100" value="{{ agenda.breakfast_recipe }}" />  
+                
+                <select name="breakfast_recipe" id="id_breakfast_recipe">
+                    
+                    <option value="">---------</option>
+
+                    {% for recipe in recipes %}  
+                    
+                    {% if agenda.breakfast_recipe.id == recipe.id %}
+                    <option value="{{ recipe.id }}" selected="selected">{{ recipe.name }}</option>
+                    {% else %}
+                    <option value="{{ recipe.id }}">{{ recipe.name }}</option>
+                    {% endif %}
+
+                    {% endfor %}
+
+                   
+                  
+                  </select> 
             </div>  
         </div>  
         <div class="form-group row">  
             <label class="col-sm-2 col-form-label">Lunch Recipe:</label>  
             <div class="col-sm-4">  
-                <textarea name="ingredients" rows="10" cols="30" maxlength="2000">{{ agenda.lunch_recipe }}</textarea>
+                <select name="lunch_recipe" id="id_lunch_recipe">
+                    <option value="" selected="">---------</option>
+                  
+                    <option value="2">Recipe object (2)</option>
+                  
+                    <option value="4">Recipe object (4)</option>
+                  
+                    <option value="5">Recipe object (5)</option>
+                  
+                    <option value="6">Recipe object (6)</option>
+                  
+                  </select> 
             </div>  
         </div>  
         <br/>
         <div class="form-group row">  
             <label class="col-sm-2 col-form-label">Dinner Recipe:</label>  
             <div class="col-sm-4">  
-                <textarea name="instructions" rows="10" cols="30" maxlength="2000">{{ agenda.dinner_recipe }}</textarea>
+                <select name="dinner_recipe" id="id_dinner_recipe">
+                    <option value="" selected="">---------</option>
+                  
+                    <option value="2">Recipe object (2)</option>
+                  
+                    <option value="4">Recipe object (4)</option>
+                  
+                    <option value="5">Recipe object (5)</option>
+                  
+                    <option value="6">Recipe object (6)</option>
+                  
+                  </select> 
             </div>  
         </div>  
         <br/>
@@ -41,4 +92,15 @@
     </div>  
 </form>  
 
+
+
+{% endblock %}
+{% block javascript %}
+<script>
+    $(document).ready(function(){ 
+        $("#id_date").datepicker({
+            format:'dd/mm/yyyy',
+        });
+    })
+</script>
 {% endblock %}
