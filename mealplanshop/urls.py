@@ -20,6 +20,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from recipe import views as recipeViews        
 from agenda import views as agendaViews
+from django.contrib.staticfiles.storage import staticfiles_storage
+from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path('calendar/', agendaViews.index, name='calendar'),
@@ -40,6 +42,8 @@ urlpatterns = [
     path('recipes/update/<int:id>', recipeViews.update),  
     path('recipes/delete/<int:id>', recipeViews.destroy), 
     path('recipes_old/', views.recipes, name='oldRecipes'),
+    path("favicon.ico", RedirectView.as_view(url=staticfiles_storage.url("favicon.ico"))),
+
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
