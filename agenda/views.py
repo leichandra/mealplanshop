@@ -58,6 +58,7 @@ def update(request, id):
     # logger.warn(str(form.lunch_recipe_id.errors))
     # logger.warn("That is all the errors")
     # logger.warn(str(form.cleaned_data['breakfast_recipe'].errors))
+    logger.warn(str(request.POST))
     return render(request, 'agenda/edit.html', {'agenda':agenda, 'recipes':recipes, 'form':form,})  
     
 def destroy(request, id):  
