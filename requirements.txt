@@ -3,3 +3,4 @@ django-allauth
 gunicorn
 django-on-heroku
 requests
+djangorestframework

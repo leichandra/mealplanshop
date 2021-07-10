@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static '/mealplanshop/css/style.css' %}">
     <link rel="stylesheet" href="{% static '/mealplanshop/css/datepicker.min.css' %}">
     <link rel="icon"href="{% static 'favicon.ico' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -27,7 +28,8 @@
                 <a href="{% url 'recipes' %}" class="nav-link text-light pl-4">Recipes</a>
             </li>
             <li class="nav-item w-100">
-                <a href="{% url 'shoppinglists' %}" class="nav-link text-light pl-4">Shopping Lists</a>
+                <!-- <a href="{% url 'shoppinglists' %}" class="nav-link text-light pl-4">Shopping Lists</a> -->
+                <a href="{% url 'shopping_ingredients' %}" class="nav-link text-light pl-4">Shopping List</a>
             </li>
             <li class="nav-item w-100">
                 <a href="{% url 'nutrition' %}" class="nav-link text-light pl-4">Nutrition</a>

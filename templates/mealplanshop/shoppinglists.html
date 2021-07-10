@@ -1,5 +1,6 @@
 {% extends 'mealplanshop/navigation.html' %}
 {% block content %}
+{% load static %}
 <h2>Shopping Lists</h2>
 
 
@@ -8,6 +9,7 @@
       aria-describedby="search-addon" />
     <button type="button" class="btn btn-outline-primary">search</button>
   </div>
+</br>
 <h2>Shopping Lists Data</h2>
 <div class="container shoplist-container">
     <div class="row shoplist-row">
@@ -48,23 +50,53 @@
 </div> 
     <br/>
     <h2>Current Shopping List</h2>
-    <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-primary">Edit</button>
-        <button type="button" class="btn btn-primary">Delete</button>
-        <button type="button" class="btn btn-primary">Add to Google Calendar</button>
-      </div>
-      <br/>
-    <ul>
-        <li><input type=text placeholder=item></li>
-        <li><input type=text placeholder=item></li>
-        <li><input type=text placeholder=item></li>
-        <li><input type=text placeholder=item></li>
-    </ul>
-    <p><b>Store Location(can sync w/Google Maps via Google Cal?)</b></p>
-    <input type=text placeholder=Store Name>
-    <input type=text placeholder=Address>
-    <input type=text placeholder=City>
-    <input type=text placeholder=Zipcode>
-    <input type=text placeholder=Country>
+   
+        <div class = "input-group"><input type=text placeholder=wasabi><button class='btn btn-outline-danger' type='button'><i class='bi bi-trash'></i></button></div>
+        <div class = "input-group"><input type=text placeholder=banana><button class='btn btn-outline-danger' type='button'><i class='bi bi-trash'></i></button></div>
+        <div class = "input-group"><input type=text placeholder=item><button class='btn btn-outline-danger' type='button'><i class='bi bi-trash'></i></button></div>
+        <div class = "input-group"><input type=text placeholder=item><button class='btn btn-outline-danger' type='button'><i class='bi bi-trash'></i></button></div>
+    
+        <div class="js-shopping-list">
+        </div>
+        </br>
+        <div class="input-group">
+        <input type="text" class="form-control js-new-shopping" placeholder="New shopping item">
+        </div>
 
+        {% endblock %}
+        {% block javascript %}
+        <script>
+    
+            $(function() {
+        
+                $(".js-new-shopping").on('keydown', function (e) {
+                   
+                    
+                    if (e.key == 'Enter' || e.keyCode == 13) {
+                        // Do something
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                        e.stopPropagation();
+                        myCopy = $(".js-new-shopping").val()
+                        $(".js-new-shopping").val("")
+                        searchTerm = myCopy
+                        $(".js-shopping-list").append("<div class='input-group js-shopping-row'><input type='text' id='id_shopping' name='shopping' class='form-control' value='"+ myCopy +"'></input><button class='btn btn-outline-danger js-delete-shopping' type='button'><i class='bi bi-trash'></i></button><a href='https://www.amazon.com/s?k=" + searchTerm + "' target='_blank' rel='noopener noreferrer' style='border:none;text-decoration:none'><img src='{% static '/mealplanshop/images/amazon-button3.png' %}'></a></div>")
+                        return false
+                    }
+                    console.log(e.key)
+                    
+                });
+                $( ".js-shopping-list" ).on( "click", ".js-delete-shopping", function(e) {
+                    deleteButton = $(e.currentTarget)
+                    deleteRow = $(deleteButton.parent(".js-shopping-row"))
+                    deleteRow.remove()
+                    
+                });
+            });
+        
+        </script>
+
+
+    <!--Problem: new shopping item does not get added to existing shopping list when hit enter-->
+    <!--The js-shopping-list value only has one reference on this page-->
     {% endblock %}

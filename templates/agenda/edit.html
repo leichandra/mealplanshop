@@ -53,13 +53,16 @@
                 <select name="lunch_recipe" id="id_lunch_recipe">
                     <option value="" selected="">---------</option>
                   
-                    <option value="2">Recipe object (2)</option>
-                  
-                    <option value="4">Recipe object (4)</option>
-                  
-                    <option value="5">Recipe object (5)</option>
-                  
-                    <option value="6">Recipe object (6)</option>
+                    {% for recipe in recipes %}  
+                    
+                    {% if agenda.lunch_recipe.id == recipe.id %}
+                    <option value="{{ recipe.id }}" selected="selected">{{ recipe.name }}</option>
+                    {% else %}
+                    <option value="{{ recipe.id }}">{{ recipe.name }}</option>
+                    {% endif %}
+
+                    {% endfor %}
+
                   
                   </select> 
             </div>  
@@ -71,13 +74,15 @@
                 <select name="dinner_recipe" id="id_dinner_recipe">
                     <option value="" selected="">---------</option>
                   
-                    <option value="2">Recipe object (2)</option>
-                  
-                    <option value="4">Recipe object (4)</option>
-                  
-                    <option value="5">Recipe object (5)</option>
-                  
-                    <option value="6">Recipe object (6)</option>
+                    {% for recipe in recipes %}  
+                    
+                    {% if agenda.dinner_recipe.id == recipe.id %}
+                    <option value="{{ recipe.id }}" selected="selected">{{ recipe.name }}</option>
+                    {% else %}
+                    <option value="{{ recipe.id }}">{{ recipe.name }}</option>
+                    {% endif %}
+
+                    {% endfor %}
                   
                   </select> 
             </div>  

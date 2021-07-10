@@ -1,5 +1,7 @@
 {% extends 'mealplanshop/navigation.html' %}
 {% block content %}
+{% load static %}
+
 
 <form method="POST" class="post-form" action="/recipes/update/{{recipe.id}}">  
     {% csrf_token %}  
@@ -18,13 +20,38 @@
                 <input type="text" name="name" id="id_name" required maxlength="100" value="{{ recipe.name }}" />  
             </div>  
         </div>  
-        <div class="form-group row">  
+
+        <!-- <div class="form-group row">  
             <label class="col-sm-2 col-form-label">Ingredients:</label>  
             <div class="col-sm-4">  
                 <textarea name="ingredients" rows="10" cols="30" maxlength="2000">{{ recipe.ingredients }}</textarea>
             </div>  
-        </div>  
-        <br/>
+        </div>   -->
+
+        <p>Ingredients:</p>
+        <div class="js-ingredient-list">
+            {% for ingredient in ingredients %}
+                <!-- <div>{{ ingredient }}</div> -->
+                <div class="input-group js-ingredient-row">
+                    <input type="text" id="id_ingredients" name="ingredients" class="form-control" value={{ ingredient }}>
+                    <button class='btn btn-outline-danger js-delete-ingredient' type='button'><i class='bi bi-trash'></i></button>
+                    <button class='btn btn-outline-secondary' type='button'>+ to Shopping List</button>
+                    <a href='https://www.amazon.com/s?k=" + searchTerm + "' target='_blank' rel='noopener noreferrer' style='border:none;text-decoration:none'><img src='{% static '/mealplanshop/images/amazon-button3.png' %}'></a>
+                </div>
+            {% endfor %}
+        </div>
+        
+        
+      
+        
+
+        
+        <div class="input-group">
+        <input type="text" class="form-control js-new-ingredient" placeholder="New Ingredient">
+        </div>
+        </br>
+    
+
         <div class="form-group row">  
             <label class="col-sm-2 col-form-label">Instructions:</label>  
             <div class="col-sm-4">  
@@ -41,4 +68,44 @@
     </div>  
 </form>  
 
+
+
+{% endblock %}
+{% block javascript %}
+<script>
+    
+    $(function() {
+
+        $(".js-new-ingredient").on('keydown', function (e) {
+           
+            
+            if (e.key == 'Enter' || e.keyCode == 13) {
+                // Do something
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                e.stopPropagation();
+                myCopy = $(".js-new-ingredient").val()
+                $(".js-new-ingredient").val("")
+                searchTerm = myCopy
+                $(".js-ingredient-list").append("<div class='input-group js-ingredient-row'><input type='text' id='id_ingredients' name='ingredients' class='form-control' value='"+ myCopy +"'></input><button class='btn btn-outline-danger js-delete-ingredient' type='button'><i class='bi bi-trash'></i></button><button class='btn btn-outline-secondary' type='button'>+ to Shopping List</button><a href='https://www.amazon.com/s?k=" + searchTerm + "' target='_blank' rel='noopener noreferrer' style='border:none;text-decoration:none'><img src='{% static '/mealplanshop/images/amazon-button3.png' %}'></a></div>")
+                return false
+            }
+            console.log(e.key)
+            
+        });
+        $( ".js-ingredient-list" ).on( "click", ".js-delete-ingredient", function(e) {
+            // 1. Get the jquery object reprsentation of the delete button
+            deleteButton = $(e.currentTarget)
+            // 2. Find the parent matching the class: js-ingredient-row
+            deleteRow = $(deleteButton.parent(".js-ingredient-row"))
+            // 3. Delete that parent
+            deleteRow.remove()
+        });
+    });
+
+// Objective is to delete an ingredient when a new ingredient is created. Add the class 'js-ingredient-row' to the div.
+// Copy over the delete logic to the create page.
+
+
+</script>
 {% endblock %}

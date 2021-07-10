@@ -46,3 +46,12 @@
 </form>  
 
 {% endblock %}
+{% block javascript %}
+<script>
+    $(document).ready(function(){ 
+        $("#id_date").datepicker({
+            format:'mm/dd/yyyy',
+        });
+    })
+</script>
+{% endblock %}

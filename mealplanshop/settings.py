@@ -44,8 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mealplanshop',
     'recipe',
+    'shopping_ingredient',
     'agenda',
-
+    'rest_framework',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
