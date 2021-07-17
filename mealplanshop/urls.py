@@ -43,6 +43,7 @@ urlpatterns = [
     path('recipes/update/<int:id>', recipeViews.update),  
     path('recipes/delete/<int:id>', recipeViews.destroy), 
     path('shopping_ingredients/', shoppingIngredientViews.index, name='shopping_ingredients'),
+    path('shopping_ingredients/delete/<int:id>', shoppingIngredientViews.delete, name='shopping_ingredient_delete'),
     path("favicon.ico", RedirectView.as_view(url=staticfiles_storage.url("favicon.ico"))),
     path('api/recipes/', recipeViews.apiList),
     path('api/recipes/<int:id>', recipeViews.apiGet),

@@ -136,3 +136,7 @@ table.month  {
     border-top: 1px solid black;
     min-width: 900px;
 }
+
+.ingredient-cell > input {
+    width: 100%;
+}

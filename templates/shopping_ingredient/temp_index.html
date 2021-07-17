@@ -1,0 +1,33 @@
+
+  <table class="table table-striped table-bordered table-sm">  
+    <thead class="thead-dark">  
+    <tr>  
+        <th>ID</th>  
+        <th>Name</th>  
+        <th>Store</th>
+        <th>Actions</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+      {% for shopping_ingredient in shopping_ingredients %}  
+      <tr>  
+        <td>{{ shopping_ingredient.id }}</td>  
+        <td><input class="shopping-ingredient-input" type="text" name="form-{{ forloop.counter0 }}-name" maxlength="100" id="id_form-{{ forloop.counter0 }}-name" value="{{ shopping_ingredient.name }}"></td>  
+        <td><input class="shopping-ingredient-input" type="text" name="form-{{ forloop.counter0 }}-store" maxlength="100" id="id_form-{{ forloop.counter0 }}-store" value="{{ shopping_ingredient.store }}"></td>  
+        <td></td>  
+      </tr>  
+      {% endfor %}  
+    </tbody>  
+</table>  
+
+
+
+<table>
+  {% for form in formset.forms %}
+    <tr>
+      <td>form.name</td>
+      <td>form.store</td>
+    </tr>
+  {% endfor %}
+</table>
+{{ formset.management_data }}

@@ -1,31 +1,36 @@
 {% extends 'mealplanshop/navigation.html' %}
 {% block content %} 
+{% load static %}
 
 <h1>Shopping Ingredients</h1>
 
-<form method="POST" class="post-form" action="/shopping_ingredient">  
+<form method="POST" class="post-form" action="/shopping_ingredients/">  
   {% csrf_token %}  
+  
+  {{ formset.management_form }}
 
   <table class="table table-striped table-bordered table-sm">  
-      <thead class="thead-dark">  
-      <tr>  
-          <th>ID</th>  
-          <th>Name</th>  
-          <th>Store</th>
-          <th>Actions</th>  
-      </tr>  
-      </thead>  
-      <tbody>  
-        {% for shopping_ingredient in shopping_ingredients %}  
-        <tr>  
-          <td>{{ shopping_ingredient.id }}</td>  
-          <td>{{ shopping_ingredient.name }}</td>  
-          <td>{{ shopping_ingredient.store }}</td>  
-          <td></td>  
-        </tr>  
-        {% endfor %}  
-      </tbody>  
-  </table>  
+    <thead class="thead-dark">  
+    <tr>  
+        <th>ID</th>  
+        <th>Name</th>  
+        <th>Store</th>
+        <th>Actions</th>  
+    </tr>  
+    </thead>  
+    <tbody>
+      {% for form in formset.forms %}
+        <tr>
+          <td>{{ form.id }}</td>
+          <td class="ingredient-cell">{{ form.name }}</td>
+          <td class="ingredient-cell">{{ form.store }}</td>
+          {% if form.instance.id != None %}
+            <td><a href="{% url 'shopping_ingredient_delete' form.instance.id %}">Delete</a></td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 
   <div class="container">  
     <div class="form-group row">  

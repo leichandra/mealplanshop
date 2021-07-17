@@ -6,6 +6,4 @@ class ShoppingIngredientForm(forms.ModelForm):
     class Meta:  
         model = ShoppingIngredient  
         fields = "__all__"  
-
-
    
