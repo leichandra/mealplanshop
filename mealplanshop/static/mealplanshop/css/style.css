@@ -140,3 +140,22 @@ table.month  {
 .ingredient-cell > input {
     width: 100%;
 }
+
+.top-navigation {
+    height: 22px;
+}
+
+.top-navigation-right {
+    float: right;
+}
+
+.google-signin-button {
+    padding: 0;
+    border-radius: 0;
+    text-align: left;
+    width: 300px;
+}
+
+.google-signin-logo {
+    margin-right: 16px;
+}

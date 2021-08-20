@@ -7,8 +7,9 @@
 #     return []
 
 
+from django.conf.urls import url
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 import datetime
 import calendar as calendar2
 import urllib.parse
@@ -17,7 +18,8 @@ def index(request):
   # now = datetime.datetime.now()
   # html = "<html><body>It is now %s.</body></html>" % now
   # return HttpResponse(html)
-  return render(request, 'mealplanshop/index.html')
+  # return render(request, 'mealplanshop/index.html')
+  return redirect('accounts/login')
 
 def profile(request):
   return render(request, 'mealplanshop/profile.html')

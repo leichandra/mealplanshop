@@ -37,6 +37,17 @@
         </ul>
     </nav>
     <section class="p-4 my-container active-cont">
+
+        <div class="top-navigation">
+            <div class="top-navigation-right">
+                {% load socialaccount %}
+                <form method="post" action="/accounts/logout/">
+                    {% csrf_token %}
+                
+                    <button class="btn btn-success" type="submit">Sign Out</button>
+                </form>
+            </div>
+        </div>
        
         <div>
             {% block content %}
